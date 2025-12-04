@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:taskapp/features/auth/pages/login_page.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -75,12 +77,20 @@ class _SignupPageState extends State<SignupPage> {
               ),
               SizedBox(height: 15),
               RichText(
-                
                 text: TextSpan(
-                  
-                  text: "Already have an account? ",
+                  text: "Don't have an account? ",
                   style: Theme.of(context).textTheme.titleMedium,
-                  children: [TextSpan(text: 'Sign In.')],
+                  children: [
+                    TextSpan(
+                      text: 'Sign Up.',
+                      style: TextStyle(color: Colors.blue),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          // Navigate back to signup
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginPage()));
+                        },
+                    ),
+                  ],
                 ),
               ),
             ],
