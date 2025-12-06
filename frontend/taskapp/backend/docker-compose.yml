@@ -1,5 +1,6 @@
 services:
   backend: 
+    container_name: backend-app
     build: 
       context: ./
     ports: 
@@ -15,6 +16,7 @@ services:
     command: npm run dev
 
   db:
+    container_name: postgres-db
     image: postgres:15-alpine
     restart: always
     environment:
